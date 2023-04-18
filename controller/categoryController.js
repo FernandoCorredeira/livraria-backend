@@ -1,6 +1,7 @@
 const express = require('express');
 
 const categoryModel = require('../model/categoryModel');
+const category = require('../model/categoryModel');
 
 /* GERENCIADOR DE ROTAS*/
 const router = express.Router();
@@ -26,13 +27,29 @@ router.post('/category/insert', (req,res)=>{
 
 /* ROTA DE SELEÇÃO DE AUTOR(GET)*/
 router.get('/category/select', (req,res)=>{
-    res.send('ROTA DE CATEGORIA DE SELEÇÃO!');
+    categoryModel.findAll()
+    .then((category)=>{
+        res.json(category)
+    })
+    
 
 })
 
 /* ROTA DE ALTERAÇÃO DE AUTOR(PUT)*/
 router.put('/category/alter', (req,res)=>{
-    res.send('ROTA DE CATEGORIA DE ALTERAÇÃO!');
+
+    let id = req.body.id;
+    let name_category = req.body.name_category
+
+    categoryModel.update(
+        {name_category},
+        {where:{id}}
+    )
+    .then(
+        ()=>{
+            res.send("Categoria alterada")
+        }
+    )
 
 })
 

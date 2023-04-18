@@ -21,7 +21,7 @@ const category = connection.define(
     }
 );
 
-category.sync({force:true});
+//category.sync({force:true});
 
 module.exports = category;
 
