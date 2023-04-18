@@ -11,17 +11,17 @@ PARAMETROS:
 2 - UM OU MAIS OBJETOS JSON QUE VÃO REPRESENTAR OS CAPOS, SEUS TIPOS E
     REGRAS DE PREENCHIMENTO
 */
-const categoria = connection.define(
-    'tbl_categoria',
+const category = connection.define(
+    'tbl_category',
     {
-        nome_categoria:{
+        name_category:{
             type: sequelize.STRING,
             allowNull: false
         }
     }
 );
 
-//categoria.sync({force:true});
+category.sync({force:true});
 
-module.exports = categoria;
+module.exports = category;
 

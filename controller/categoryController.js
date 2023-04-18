@@ -1,6 +1,6 @@
 const express = require('express');
 
-const categoriaModel = require('../model/categoriaModel');
+const categoryModel = require('../model/categoryModel');
 
 /* GERENCIADOR DE ROTAS*/
 const router = express.Router();
@@ -12,7 +12,7 @@ router.post('/category/insert', (req,res)=>{
 
     let name_category = req.body.name_category;
     
-    categoriaModel.create(
+    categoryModel.create(
         {name_category}
     ).then(
         ()=>{

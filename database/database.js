@@ -15,7 +15,7 @@ PARAMETROS:
 */
 
 const connection = new sequelize(
-    'pw',
+    'pw2-livraria-backend',
     'root',
     '',
     {

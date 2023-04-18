@@ -11,7 +11,7 @@
     "ETEC",
     "LIVRARIA"
   ],
-  "author": "RAFAEL MARQUES DA SILVA",
+  "author": "Fernando Corredeira",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
