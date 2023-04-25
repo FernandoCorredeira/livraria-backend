@@ -20,7 +20,7 @@ const category = connection.define(
         }
     }
 );
-
+// CRIAÇÃO DA TABELA
 //category.sync({force:true});
 
 module.exports = category;
