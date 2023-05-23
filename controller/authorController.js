@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 /* GERENCIADOR DE ROTAS*/
 const router = express.Router();
 

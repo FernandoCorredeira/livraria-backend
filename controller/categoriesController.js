@@ -1,16 +1,16 @@
 const express = require('express');
 
-const categoryModel = require('../model/categoryModel');
+const categoriesModel = require('../model/categoriesModel');
 
 /* GERENCIADOR DE ROTAS*/
 const router = express.Router();
 
 /* ROTA DE INSERÇÃO DE CATEGORIA(POST)*/
-router.post('/category/insert', (req,res)=>{
+router.post('/categories/insert', (req,res)=>{
 
     let name_category = req.body.name_category;
     
-    categoryModel.create(
+    categoriesModel.create(
         {name_category}
     ).then(
         ()=>{
@@ -34,11 +34,11 @@ router.post('/category/insert', (req,res)=>{
 })
 
 /* ROTA DE SELEÇÃO DE CATEGORIA(GET)*/
-router.get('/category/select', (req,res)=>{
-    categoryModel.findAll()
+router.get('/categories/select', (req,res)=>{
+    categoriesModel.findAll()
     
-    .then((category)=>{
-        res.json(category)
+    .then((categories)=>{
+        res.json(categories)
     }).catch(
         (error)=>{
             return res.status(500).json({
@@ -53,12 +53,12 @@ router.get('/category/select', (req,res)=>{
 })
 
 /* ROTA DE ALTERAÇÃO DE CATEGORIA(PUT)*/
-router.put('/category/alter', (req,res)=>{
+router.put('/categories/alter', (req,res)=>{
 
     let id = req.body.id;
     let name_category = req.body.name_category
 
-    categoryModel.update(
+    categoriesModel.update(
         {name_category},
         {where:{id}}
     )
@@ -82,10 +82,10 @@ router.put('/category/alter', (req,res)=>{
 })
 
 /* ROTA DE EXCLUSÃO DE CATEGORIA(DELETE)*/
-router.delete('/category/delete/:id', (req,res)=>{
+router.delete('/categories/delete/:id', (req,res)=>{
     let id = req.params.id;
 
-    categoryModel.destroy(
+    categoriesModel.destroy(
         {where:{id}}
     ).then(
         ()=>{

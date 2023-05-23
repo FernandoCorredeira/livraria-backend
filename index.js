@@ -13,10 +13,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // IMPORTAÇÃO DAS ROTAS
-const categoryController = require('./controller/categoryController');
+const categoriesController = require('./controller/categoriesController');
+const booksController = require ('./controller/booksController')
 
-
-app.use('/', categoryController);
+app.use('/', categoriesController);
+app.use('/', booksController);
 
 /* 
 TESTE DE ROTA GET
